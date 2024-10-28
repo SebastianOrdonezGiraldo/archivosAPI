@@ -12,28 +12,28 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/archivosapi")
-public class ArchivoController {
+public class  ArchivoController {
 
     // Método para la imagen PNG
-    @GetMapping("/imagen/garfield")
+    @GetMapping("/imagen/leon")
     public ResponseEntity<byte[]> getImagenGarfield() throws IOException {
-        ClassPathResource imgFile = new ClassPathResource("static/imagen/garfield.png");
+        ClassPathResource imgFile = new ClassPathResource("static/imagen/leon.jpg");
         byte[] imageBytes = imgFile.getInputStream().readAllBytes();
         return ResponseEntity
                 .ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"garfield.png\"") // Cambiado a "inline"
+                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"leon.jpg\"")
                 .contentType(MediaType.IMAGE_PNG)
                 .body(imageBytes);
     }
 
     // Método para el archivo PDF
-    @GetMapping("/pdf/CurriculumVitae")
+    @GetMapping("/pdf/book")
     public ResponseEntity<byte[]> getCurriculumVitae() throws IOException {
         ClassPathResource pdfFile = new ClassPathResource("static/pdf/CurriculumVitae.pdf");
         byte[] pdfBytes = pdfFile.getInputStream().readAllBytes();
         return ResponseEntity
                 .ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"CurriculumVitae.pdf\"")
+                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"book.pdf\"")
                 .contentType(MediaType.APPLICATION_PDF)
                 .body(pdfBytes);
     }

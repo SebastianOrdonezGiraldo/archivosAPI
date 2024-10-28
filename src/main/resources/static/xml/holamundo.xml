@@ -3,6 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <message>Solicitaste el archivo XML ¡Bienvenido! :3.</message>
+    <!-- Si quieres definir un mensaje, necesitas hacerlo dentro de un bean -->
+    <bean id="messageBean" class="java.lang.String">
+        <constructor-arg value="Solicitaste el archivo XML ¡Bienvenido! :3"/>
+    </bean>
 
 </beans>
